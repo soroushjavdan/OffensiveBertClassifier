@@ -86,7 +86,7 @@ class ClassificationModel:
 
         # Saving best-practices: if you use defaults names for the model, you can reload it using from_pretrained()
 
-        output_dir = path_model
+        output_dir = path_model + "/epoch-{}-{}-{}-{}".format(epoch_n,acc,f1,ave_loss)
 
         # Create output directory if needed
         if not os.path.exists(output_dir):
@@ -129,7 +129,7 @@ class ClassificationModel:
         #                           t_total=int(len(self.train_df) / batch_size) * epochs)
 
         self.optimizer = AdamW(self.model.parameters(),
-                          lr=2e-5,  # args.learning_rate - default is 5e-5, our notebook had 2e-5
+                          lr=lr,  # args.learning_rate - default is 5e-5, our notebook had 2e-5
                           eps=1e-8  # args.adam_epsilon  - default is 1e-8.
                           )
 

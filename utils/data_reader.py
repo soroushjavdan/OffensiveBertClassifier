@@ -53,7 +53,7 @@ def load_dataset(path):
 
         print(len(data))
 
-        test = data.sample(500)
+        test = data.sample(1000)
         data = data.drop(test.index)
         valid = data.sample(100)
         data = data.drop(valid.index)
